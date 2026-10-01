@@ -1,5 +1,14 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "productionsupport",
-  "displayName": "ProductionSupport"
+  "displayName": "ProductionSupport",
+  "extensions": {
+    "software.bevel.hexis": {
+      "mcpServers": {
+        "cakewalk": {
+          "description": "Cakewalk MCP gateway (https://mcp-gateway.getcakewalk.io/mcp) \u2014 OAuth-protected; each user signs in on the Connect page."
+        }
+      }
+    }
+  }
 }
