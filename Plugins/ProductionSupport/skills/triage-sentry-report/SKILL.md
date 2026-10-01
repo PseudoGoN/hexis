@@ -1,18 +1,12 @@
 ---
 name: triage-sentry-report
 description: Pulls every Linear issue currently in Triage, finds the Sentry issue each one is linked to, inspects what actually happened in Sentry, and returns a plain-text report listing each triage issue with a descriptive explanation of the underlying error.
-allowed-tools:
-  - list_teams
-  - list_issues
-  - get_issue
-  - get_attachment
-  - find_organizations
-  - search_issues
-  - get_sentry_resource
-  - analyze_issue_with_seer
 metadata:
   version: "1.0.0"
   owner: ProductionSupport
+  requires-tools:
+    linear: [list_teams, list_issues, get_issue, get_attachment]
+    sentry: [find_organizations, search_issues, get_sentry_resource, analyze_issue_with_seer]
 ---
 
 # Triage → Sentry report
@@ -26,11 +20,13 @@ integration adds the Linear issue as a link/attachment, and people often paste a
 Sentry URL into the description or a comment). Your job is to resolve that link,
 read the Sentry side, and explain it in prose.
 
-## Tools
+## Required tools
 
-These are the canonical Linear and Sentry MCP tool names. Depending on the
-client they may appear with a server prefix (e.g. `linear__list_issues`,
-`sentry__get_sentry_resource`) — use whichever form is registered.
+This skill needs the **Linear** and **Sentry** MCP tools to be available to the
+running agent (in this workspace they come through the connected gateway). The
+canonical tool names are below; depending on the client they may appear with a
+server prefix (e.g. `linear__list_issues`, `sentry__get_sentry_resource`) — use
+whichever form is registered.
 
 - **Linear**: `list_teams`, `list_issues`, `get_issue`, `get_attachment`
 - **Sentry**: `find_organizations`, `search_issues`, `get_sentry_resource`,
