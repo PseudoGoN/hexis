@@ -2,7 +2,7 @@
 name: triage-sentry-report
 description: Pulls every Linear issue currently in Triage, finds the Sentry issue each one is linked to, inspects what actually happened in Sentry, and returns a plain-text report listing each triage issue with a descriptive explanation of the underlying error.
 metadata:
-  version: "1.1.0"
+  version: "1.1.2"
   owner: ProductionSupport
   runs-against: cakewalk MCP gateway (the `cakewalk` server on this plugin)
   requires-tools:
