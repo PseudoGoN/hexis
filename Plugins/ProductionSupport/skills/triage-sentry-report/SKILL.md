@@ -57,8 +57,8 @@ don't need a follow-up call for the basics:
 linear__list_issues(
   state: "triage",
   limit: 250,
-  fields: ["identifier", "title", "description", "url", "status", "priority",
-           "assignee", "team", "createdAt", "triageIntel"],
+  fields: ["title", "description", "url", "status", "priority", "assignee",
+           "team", "createdAt", "triageIntel"],  // `id` (e.g. FEA-136) is always returned; there is NO `identifier` field
   __cwPromptDescription: "<run description>", __cwPromptId: "<uuid>"
 )
 ```
