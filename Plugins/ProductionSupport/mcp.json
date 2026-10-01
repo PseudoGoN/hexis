@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "cakewalk": {
+      "type": "streamable-http",
+      "url": "https://mcp-gateway.getcakewalk.io/mcp"
+    }
+  }
+}
