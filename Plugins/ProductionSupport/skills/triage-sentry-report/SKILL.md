@@ -1,18 +1,19 @@
 ---
 name: triage-sentry-report
 description: Pulls every Linear issue currently in Triage, finds the Sentry issue each one is linked to, inspects what actually happened in Sentry, and returns a plain-text report listing each triage issue with a descriptive explanation of the underlying error.
-allowed-tools:
-  - linear__list_teams
-  - linear__list_issues
-  - linear__get_issue
-  - linear__get_attachment
-  - sentry__find_organizations
-  - sentry__search_issues
-  - sentry__get_sentry_resource
-  - sentry__analyze_issue_with_seer
 metadata:
   version: "1.1.0"
   owner: ProductionSupport
+  runs-against: cakewalk MCP gateway (the `cakewalk` server on this plugin)
+  requires-tools:
+    - linear__list_teams
+    - linear__list_issues
+    - linear__get_issue
+    - linear__get_attachment
+    - sentry__find_organizations
+    - sentry__search_issues
+    - sentry__get_sentry_resource
+    - sentry__analyze_issue_with_seer
 ---
 
 # Triage → Sentry report
@@ -29,7 +30,10 @@ read the Sentry side, and explain it in prose.
 ## Tools
 
 This skill runs against the **Cakewalk MCP gateway** (the `cakewalk` server on
-this plugin), which exposes Linear and Sentry tools prefixed by their upstream:
+this plugin), which exposes Linear and Sentry tools prefixed by their upstream.
+Use whichever registered form matches — the gateway advertises them as below; if
+your client namespaces them under the server, the equivalent `cakewalk` form is
+the same tool.
 
 - **Linear**: `linear__list_teams`, `linear__list_issues`, `linear__get_issue`,
   `linear__get_attachment`
